@@ -22,6 +22,7 @@ function SignUpPage() {
     event.preventDefault();
 
     setLoading(true);
+
     AuthService.signUp(user)
       .then(() => {
         navigate('/auth/sign-in')
@@ -33,6 +34,7 @@ function SignUpPage() {
         setLoading(false)
       });   
   }
+
   return (
     <form onSubmit={handleSignUp}>
       <Stack
@@ -134,3 +136,5 @@ function SignUpPage() {
     </form>
   )
 }
+
+export default SignUpPage;
