@@ -1,30 +1,42 @@
-
-import { useNavigate } from "react-router-dom";
+import { Button, Card, CardContent, Dialog, DialogContent, DialogTitle, Paper, Stack, Table, TableBody, TableCell, TableContainer, TableHead, TableRow, TextField, Typography } from "@mui/material";
 import { useAuth } from "../../hooks/useAuth";
-import { Button, Card, CardContent, Dialog, DialogContent, DialogTitle, Paper, Stack, 
-  Table, TableBody, TableCell, TableContainer, TableHead, TableRow, TextField, Typography } from "@mui/material";
+import { useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
 
-  const navigate = useNavigate();
+
 function HomePage() {
+  const navigate = useNavigate();
   const { user, setUser } = useAuth();
+
   const [qrCode, setQrCode] = useState<string>('')
   const [openDialog, setOpenDialog] = useState<boolean>(false);
+
   const [factorId, setFactorId] = useState<string>('');
+
   const [hasVerified, setHasVerified] = useState<boolean>(false);
+
   const [verifiedCode, setVerifiedCode] = useState<string>('');
+
+
   useEffect(() => {
     loadFactor();
   }, []);
+
   const loadFactor = async () => {
-  }
-  const handleConfigure = async () => {
-  }
-  const handleVerify = async () => {
-  }
-  const handleRemove = async () => {
+
   }
 
+  const handleConfigure = async () => {
+
+  }
+
+  const handleVerify = async () => {
+
+  }
+
+  const handleRemove = async () => {
+
+  }
 
   return (
     <Stack
@@ -68,7 +80,9 @@ function HomePage() {
                     App Autenticador
                   </TableCell>
                   <TableCell align="center">
+
                     {/* TO-DO: Implementar aqui */}
+
                   </TableCell>
                   <TableCell align="center">
                     {/* TO-DO: Implementar aqui */}
@@ -77,8 +91,6 @@ function HomePage() {
               </TableBody>
             </Table>
           </TableContainer>
-
-          
         </CardContent>
       </Card>
 
@@ -95,6 +107,7 @@ function HomePage() {
               size="small"
               variant="outlined"
             />
+
             <Button
               variant="contained"
               size="small"

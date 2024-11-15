@@ -1,10 +1,5 @@
-export interface ICredential {
-    username: string;
-    password: string;
-  }
-  export interface IUser {
-    uid?: string;
-    name: string;
-    email: string;
-    password?: string;
-  }
+import { createClient } from '@supabase/supabase-js'
+
+const supabaseUrl = 'https://irisrbwvpuhqsjkqvuur.supabase.co'
+const supabaseKey = import.meta.env.VITE_SUPABASE_KEY
+export const supabase = createClient(supabaseUrl, supabaseKey)

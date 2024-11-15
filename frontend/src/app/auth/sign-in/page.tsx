@@ -5,10 +5,13 @@ import { useNavigate } from "react-router-dom";
 import { Traco } from "../../components/ui/traco";
 import { ICredential } from "../../../@libs/types";
 import { AuthService } from "../../../services/auth-service";
+import { useAuth } from "../../../hooks/useAuth";
 
 
 function SignInPage() {
   const navigate = useNavigate();
+
+  const { setUser } = useAuth();
 
   //State - Loading
   const [loading, setLoading] = useState(false)
@@ -24,15 +27,21 @@ function SignInPage() {
     setLoading(true);
 
     AuthService.signIn(credential)
-    .then(() => {
-      navigate('/');
-    })
-    .catch(error => {
-      console.log('PAU ', error)
-    })
-    .finally(() => {
-      setLoading(false)
-    })
+      .then(result => {
+        navigate('/');
+
+        setUser({
+            uid: result.user.id,
+            email: result.user.email || '',
+            name: result.user.user_metadata?.name
+        });
+      })
+      .catch(error => {
+        console.log('PAU ', error)
+      })
+      .finally(() => {
+        setLoading(false)
+      })
   }
 
   return (
